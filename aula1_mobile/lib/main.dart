@@ -1,9 +1,11 @@
+import 'package:aula1_mobile/navigation/navbar.dart';
 import 'package:aula1_mobile/pages/telacolumn.dart';
 import 'package:aula1_mobile/pages/telamix.dart';
 import 'package:aula1_mobile/pages/telamixvini.dart';
 import 'package:aula1_mobile/pages/telarow.dart';
 import 'package:aula1_mobile/pages/telastack.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 void main() {
   //funcao principal
@@ -22,13 +24,14 @@ class MyApp extends StatelessWidget {
       //fornece os componentes para as telas & faz a configuração geral do App
       initialRoute: "/",
       routes: {
-        "/": (context) => TelaColumn(),
+        "/": (context) => NavBar(),
+        "/column": (context) => TelaColumn(),
         "/row": (context) => TelaRow(),
         "/stack": (context) => TelaStack(),
         "/mix": (context) => TelaMix(),
         "/mixvini": (context) => TelaMixVini(),
       },
-      theme: ThemeData(fontFamily: "Poppins"),
+      theme: ThemeData(fontFamily: GoogleFonts.poppins().fontFamily),
     );
   }
 }
