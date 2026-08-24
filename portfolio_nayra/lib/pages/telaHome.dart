@@ -24,19 +24,35 @@ class TelaHome extends StatelessWidget {
           padding: const EdgeInsets.all(30.0),
           child: Column(
             children: [
-              // TOPO
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(
+                    "N A Y R A   D O U R A D O",
+                    style: TextStyle(fontSize: 14, fontWeight: FontWeight.w500),
+                  ),
+
+                  Text(
+                    "P O R T F O L I O",
+                    style: TextStyle(
+                      fontSize: 14,
+                      color: azulEscuro,
+                      fontWeight: FontWeight.w500,
+                    ),
+                  ),
+                ],
+              ),
+              const SizedBox(height: 35),
+
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Container(
                     width: 230,
                     height: 230,
-
-                    decoration: BoxDecoration(
+                    decoration: const BoxDecoration(
                       shape: BoxShape.circle,
-
-                      // border: Border.all(width: 4.0), // color: Colors.blue,
-                      image: const DecorationImage(
+                      image: DecorationImage(
                         image: AssetImage('assets/nayra.jpg'),
                         fit: BoxFit.cover,
                       ),
@@ -45,59 +61,88 @@ class TelaHome extends StatelessWidget {
 
                   const SizedBox(width: 30),
 
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    spacing: 5,
-
-                    children: [
-                      Text(
-                        "Olá,",
-                        style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                          fontSize: 50,
-                        ),
-                      ),
-
-                      Text(
-                        "Eu sou Nayra Dourado Oliveira.",
-                        style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                          fontSize: 15,
-                        ),
-                      ),
-
-                      Text("Seja bem-vindo(a) ao meu Portfolio!"),
-
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          IconButton(
-                            onPressed: () {
-                              abrirLink(
-                                "https://www.linkedin.com/in/nayra-dourado-oliveira-7827a121a/",
-                              );
-                            },
-                            icon: FaIcon(FontAwesomeIcons.linkedin, size: 30),
+                  Expanded(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      spacing: 5,
+                      children: [
+                        const Text(
+                          "Olá,",
+                          style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            fontSize: 50,
                           ),
+                        ),
 
-                          SizedBox(width: 10),
-
-                          IconButton(
-                            onPressed: () {
-                              abrirLink("https://github.com/naydourado");
-                            },
-                            icon: FaIcon(FontAwesomeIcons.github, size: 30),
+                        const Text(
+                          "Eu sou Nayra Dourado Oliveira.",
+                          style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            fontSize: 15,
                           ),
-                        ],
-                      ),
-                    ],
+                        ),
+
+                        const Text("Seja bem-vindo(a) ao meu Portfolio!"),
+
+                        Row(
+                          children: [
+                            TextButton(
+                              onPressed: () {
+                                abrirLink(
+                                  "https://www.linkedin.com/in/nayra-dourado-oliveira-7827a121a/",
+                                );
+                              },
+
+                              style: TextButton.styleFrom(
+                                backgroundColor: azulClaroBotao,
+                                foregroundColor: azulEscuro,
+                              ),
+
+                              child: const Row(
+                                mainAxisSize: MainAxisSize.min,
+                                children: [
+                                  FaIcon(FontAwesomeIcons.linkedin, size: 25),
+
+                                  SizedBox(width: 8),
+
+                                  Text("LinkedIn"),
+                                ],
+                              ),
+                            ),
+
+                            const SizedBox(width: 10),
+
+                            TextButton(
+                              onPressed: () {
+                                abrirLink("https://github.com/naydourado");
+                              },
+
+                              style: TextButton.styleFrom(
+                                backgroundColor: azulClaroBotao,
+                                foregroundColor: azulEscuro,
+                              ),
+
+                              child: const Row(
+                                mainAxisSize: MainAxisSize.min,
+                                children: [
+                                  FaIcon(FontAwesomeIcons.github, size: 25),
+
+                                  SizedBox(width: 8),
+
+                                  Text("GitHub"),
+                                ],
+                              ),
+                            ),
+                          ],
+                        ),
+                      ],
+                    ),
                   ),
                 ],
               ),
 
               const SizedBox(height: 35),
 
-              // SOBRE MIM
               Column(
                 children: [
                   Text("Sobre mim", style: tituloTextos),
@@ -122,7 +167,6 @@ class TelaHome extends StatelessWidget {
 
               const SizedBox(height: 25),
 
-              // TECNOLOGIAS
               Column(
                 children: [
                   Text("Tecnologias", style: tituloTextos),
@@ -133,10 +177,10 @@ class TelaHome extends StatelessWidget {
 
                   const SizedBox(height: 20),
 
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
+                  Wrap(
+                    alignment: WrapAlignment.center,
                     spacing: 5,
-
+                    runSpacing: 5,
                     children: [
                       Container(
                         padding: const EdgeInsets.all(10),
@@ -168,10 +212,9 @@ class TelaHome extends StatelessWidget {
 
               const SizedBox(height: 35),
 
-              // CURIOSIDADES
               Column(
                 children: [
-                  const Text("Curiosidades"),
+                  Text("Curiosidades", style: tituloTextos),
 
                   const SizedBox(height: 5),
 
@@ -179,30 +222,26 @@ class TelaHome extends StatelessWidget {
 
                   const SizedBox(height: 20),
 
-                  Row(
+                  Wrap(
                     spacing: 20,
-                    children: [
-                      Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-
+                    runSpacing: 20,
+                    alignment: WrapAlignment.center,
                     children: [
                       Container(
-                        width: 200,
-                        height: 150,
+                        width: 230,
+                        height: 180,
                         padding: const EdgeInsets.all(12),
-
                         decoration: BoxDecoration(
-                          color: const Color(0xffe4fcf0),
+                          color: azulClaroBotao,
                           borderRadius: BorderRadius.circular(15),
                         ),
-
                         child: const Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Row(
                               children: [
                                 Icon(Icons.music_note),
-
+                                SizedBox(width: 3),
                                 Text(
                                   "Música",
                                   style: TextStyle(fontWeight: FontWeight.bold),
@@ -213,38 +252,30 @@ class TelaHome extends StatelessWidget {
                             SizedBox(height: 5),
 
                             Text(
-                              "A música faz parte do meu dia a dia.\n"
-                              "Inclusive, toco o básico do violão.",
+                              "A música está sempre presente no meu dia a dia. "
+                              "Gosto de diferentes estilos e também toco um pouco de violão.",
                             ),
                           ],
                         ),
                       ),
-                    ],
-                  ),
 
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-
-                    children: [
                       Container(
-                        width: 200,
-                        height: 150,
+                        width: 230,
+                        height: 180,
                         padding: const EdgeInsets.all(12),
-
                         decoration: BoxDecoration(
-                          color: const Color(0xffe4fcf0),
+                          color: azulClaroBotao,
                           borderRadius: BorderRadius.circular(15),
                         ),
-
                         child: const Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Row(
                               children: [
-                                Icon(Icons.music_note),
-
+                                Icon(Icons.menu_book),
+                                SizedBox(width: 3),
                                 Text(
-                                  "Música",
+                                  "Leitura",
                                   style: TextStyle(fontWeight: FontWeight.bold),
                                 ),
                               ],
@@ -253,16 +284,44 @@ class TelaHome extends StatelessWidget {
                             SizedBox(height: 5),
 
                             Text(
-                              "A música faz parte do meu dia a dia.\n"
-                              "Inclusive, toco o básico do violão.",
+                              "Gosto de aproveitar meus momentos livres para ler e conhecer histórias e perspectivas diferentes.",
+                            ),
+                          ],
+                        ),
+                      ),
+
+                      Container(
+                        width: 230,
+                        height: 180,
+                        padding: const EdgeInsets.all(12),
+                        decoration: BoxDecoration(
+                          color: azulClaroBotao,
+                          borderRadius: BorderRadius.circular(15),
+                        ),
+                        child: const Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Row(
+                              children: [
+                                Icon(Icons.cake),
+                                SizedBox(width: 3),
+                                Text(
+                                  "Cozinhar",
+                                  style: TextStyle(fontWeight: FontWeight.bold),
+                                ),
+                              ],
+                            ),
+
+                            SizedBox(height: 5),
+
+                            Text(
+                              "Nunca fui muito de cozinhar, mas ultimamente tenho gostado de testar receitas doces.",
                             ),
                           ],
                         ),
                       ),
                     ],
                   ),
-                    ],
-                  )
                 ],
               ),
             ],
