@@ -1,16 +1,41 @@
-# portfolio_nayra
+# PorfolioMobile
 
-A new Flutter project.
+Portfólio pessoal de **Nayra Dourado Oliveira**, desenvolvido com Flutter.
 
-## Getting Started
+## Tecnologias
 
-This project is a starting point for a Flutter application.
+- [Flutter](https://flutter.dev/)
+- [Dart](https://dart.dev/)
+- [Google Fonts](https://pub.dev/packages/google_fonts)
+- [Font Awesome Flutter](https://pub.dev/packages/font_awesome_flutter)
+- [URL Launcher](https://pub.dev/packages/url_launcher)
 
-A few resources to get you started if this is your first Flutter project:
+## Estrutura do projeto
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+```text
+lib/
+├── main.dart
+├── navigation/
+│   └── navbar.dart
+├── pages/
+│   ├── telaHome.dart
+│   └── telaInsight.dart
+└── style/
+    └── geral.dart
+```
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## Como executar
+
+### Pré-requisitos
+
+- [Flutter SDK](https://docs.flutter.dev/get-started/install) instalado;
+- Um emulador, dispositivo físico ou navegador configurado.
+
+### Instalação
+
+```bash
+git clone https://github.com/naydourado/PorfolioMobile.git
+cd PorfolioMobile
+flutter pub get
+flutter run
+```
