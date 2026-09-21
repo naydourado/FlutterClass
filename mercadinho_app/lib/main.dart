@@ -3,6 +3,7 @@ import 'package:mercadinho_app/navigation/navbar.dart';
 import 'package:mercadinho_app/screens/splashscreen.dart';
 import 'package:mercadinho_app/screens/telagestao.dart';
 import 'package:mercadinho_app/screens/telahome.dart';
+import 'package:mercadinho_app/screens/telalogin.dart';
 import 'package:mercadinho_app/screens/telaperfil.dart';
 
 void main() {
@@ -21,7 +22,8 @@ class MyApp extends StatelessWidget {
         "/home": (context) => TelaHome(),
         "/perfil": (context) => TelaPerfil(),
         "/navbar": (context) => NavBar(),
-        "/gestao": (context) => TelaGestao()
+        "/gestao": (context) => TelaGestao(),
+        "/login": (context) => TelaLogin(),
       },
     );
   }

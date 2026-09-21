@@ -13,7 +13,7 @@ class _SplashScreenState extends State<SplashScreen> {
     super.initState();
     Future.delayed( // funcao FUTURA, que espera um determinado tempo e depois realiza uma ação
       Duration(seconds: 4),
-      (){Navigator.pushNamed(context, "/navbar");}
+      (){Navigator.pushNamed(context, "/login");}
     );
   }
 

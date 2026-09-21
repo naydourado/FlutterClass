@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mercadinho_app/screens/telacarrinho.dart';
 
 class ProdutosCard extends StatelessWidget {
   String nome;
@@ -13,7 +14,10 @@ class ProdutosCard extends StatelessWidget {
       child: Column(children: [
         Image.network(urlImagem, width: 100),
         Text(nome, style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold)),
-        Text("R\$ ${preco.toStringAsFixed(2)}")
+        Text("R\$ ${preco.toStringAsFixed(2)}"),
+        IconButton(onPressed: () {
+          produtosCarrinho.add(ProdutosCard(nome: nome, preco: preco, urlImagem: urlImagem));
+        }, icon: Icon(Icons.add_shopping_cart))
       ],),
     );
   }
