@@ -15,23 +15,29 @@ class TelaHome extends StatefulWidget {
 class _TelaHomeState extends State<TelaHome> {
   //lógica
   List produtos = [];
-  
+
   @override
-  void initState(){
+  void initState() {
+    super.initState();
     fazerGet();
   }
 
-  void fazerGet() async{
+  void fazerGet() async {
     //final é o tipo de variável que começa nulo e depois recebe um valor, ideal para comunicação com API
-    final respostaServidor = await http.get(Uri.parse("https://api-mercadinho-qnkj.onrender.com/produtos"));
-    if(respostaServidor.statusCode == 200){
+    final respostaServidor = await http.get(
+      Uri.parse("https://api-mercadinho-qnkj.onrender.com/produtos"),
+    );
+    if (respostaServidor.statusCode == 200) {
       final dados = jsonDecode(respostaServidor.body);
       setState(() {
         produtos = dados;
       });
-    }else{
-      if(mounted){ //Mounted verifica se a página foi montada antes de aparecer uma mensagem de falha
-      ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text("Falha na API!")));
+    } else {
+      if (mounted) {
+        //Mounted verifica se a página foi montada antes de aparecer uma mensagem de falha
+        ScaffoldMessenger.of(
+          context,
+        ).showSnackBar(SnackBar(content: Text("Falha na API!")));
       }
     }
   }
@@ -40,12 +46,21 @@ class _TelaHomeState extends State<TelaHome> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: MinhaAppBar(),
-      body: produtos.isEmpty ? Center(child: Text("Carregando produtos..."),): 
-      GridView(gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2),
-      children: [
-        for(final produto in produtos)
-        ProdutosCard(nome: produto["nome"], preco: produto["preco"], urlImagem: produto["imagem"])
-      ],),
+      body: produtos.isEmpty
+          ? Center(child: Text("Carregando produtos..."))
+          : GridView(
+              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                crossAxisCount: 3,
+              ),
+              children: [
+                for (final produto in produtos)
+                  ProdutosCard(
+                    nome: produto["nome"],
+                    preco: produto["preco"],
+                    urlImagem: produto["imagem"],
+                  ),
+              ],
+            ),
     );
   }
 }

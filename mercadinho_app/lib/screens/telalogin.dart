@@ -25,11 +25,11 @@ class _TelaLoginState extends State<TelaLogin> {
             usuario["senha"] == senhaDigitada.text) {
           usuarioId = usuario["id"];
           usuarioEmail = usuario["email"];
+          statusAdmin = usuario["admin"];
           if (mounted) {
             Navigator.pushNamed(context, "/navbar");
           }
         }
-        return;
       }
     } else {
       if (mounted) {
@@ -48,15 +48,22 @@ class _TelaLoginState extends State<TelaLogin> {
           mainAxisAlignment: MainAxisAlignment.center,
           spacing: 20,
           children: [
+            Image.network("https://cdn-icons-png.flaticon.com/512/6680/6680292.png", width: 120),
             InputLogin(
               fofoqueira: emailDigitado,
               placeholder: "Digite seu email",
             ),
             InputLogin(
               fofoqueira: senhaDigitada,
-              placeholder: "Digite sua senha", senha: true,
+              placeholder: "Digite sua senha",
+              senha: true,
             ),
-            TextButton(onPressed: (){fazerLogin();}, child: Text("Logar"))
+            TextButton(
+              onPressed: () {
+                fazerLogin();
+              },
+              child: Text("Logar"),
+            ),
           ],
         ),
       ),
@@ -66,3 +73,4 @@ class _TelaLoginState extends State<TelaLogin> {
 
 dynamic usuarioId;
 dynamic usuarioEmail;
+bool? statusAdmin;
