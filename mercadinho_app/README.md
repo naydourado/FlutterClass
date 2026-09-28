@@ -1,16 +1,28 @@
-# mercadinho_app
+# Mercadinho App
 
-A new Flutter project.
+Aplicativo de mercado desenvolvido em Flutter, com login de usuário, listagem de produtos, carrinho de compras e gestão de produtos para administradores.
 
-## Getting Started
+## Funcionalidades
 
-This project is a starting point for a Flutter application.
+- **Login**: autenticação de usuário via API, com identificação de administradores.
+- **Home**: listagem de produtos em grade, com opção de adicionar ao carrinho.
+- **Carrinho**: controle de quantidade por produto, cálculo do total da compra e envio do pedido.
+- **Perfil**: exibição e alteração do email do usuário, além de logout.
+- **Gestão** (somente administradores): cadastro, listagem e exclusão de produtos.
 
-A few resources to get you started if this is your first Flutter project:
+## Tecnologias
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+- [Flutter](https://flutter.dev/)
+- [http](https://pub.dev/packages/http) para consumo da API
+- [google_fonts](https://pub.dev/packages/google_fonts) (fonte Poppins)
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## API
+
+O app consome a API disponível em `https://api-mercadinho-qnkj.onrender.com`, com os seguintes recursos: `/usuarios`, `/produtos` e `/pedidos`.
+
+## Como executar
+
+```
+flutter pub get
+flutter run
+```
