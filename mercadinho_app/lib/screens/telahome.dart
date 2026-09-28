@@ -51,6 +51,7 @@ class _TelaHomeState extends State<TelaHome> {
           : GridView(
               gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                 crossAxisCount: 3,
+                mainAxisExtent: 175,
               ),
               children: [
                 for (final produto in produtos)

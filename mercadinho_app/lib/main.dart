@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:mercadinho_app/navigation/navbar.dart';
 import 'package:mercadinho_app/screens/splashscreen.dart';
 import 'package:mercadinho_app/screens/telagestao.dart';
@@ -17,6 +18,12 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       initialRoute: "/",
+      theme: ThemeData(
+        fontFamily: GoogleFonts.poppins().fontFamily,
+        textButtonTheme: TextButtonThemeData(
+          style: TextButton.styleFrom(foregroundColor: Colors.orange.shade800),
+        ),
+      ),
       routes: {
         "/": (context) => SplashScreen(),
         "/home": (context) => TelaHome(),

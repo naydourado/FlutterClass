@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mercadinho_app/screens/telalogin.dart';
 
 class MinhaAppBar extends StatelessWidget implements PreferredSizeWidget {
   const MinhaAppBar({super.key});
@@ -22,7 +23,8 @@ class MinhaAppBar extends StatelessWidget implements PreferredSizeWidget {
             Text("Mercadinho", style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: Colors.white)),
           ],
         ),
-        IconButton(onPressed: () => Navigator.pushNamed(context, "/gestao"), icon: Icon(Icons.settings, color: Colors.white))
+        if (statusAdmin == true)
+          IconButton(onPressed: () => Navigator.pushNamed(context, "/gestao"), icon: Icon(Icons.settings, color: Colors.white))
       ],),
       automaticallyImplyLeading: false,
       backgroundColor: Colors.orange,

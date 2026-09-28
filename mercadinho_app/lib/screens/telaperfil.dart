@@ -18,7 +18,7 @@ class _TelaPerfilState extends State<TelaPerfil> {
   @override
   void initState() {
     super.initState();
-    emailDigitado.text = usuarioEmail;
+    emailDigitado.text = usuarioEmail ?? "";
   }
 
   void fazerPatch() async {
@@ -58,7 +58,24 @@ class _TelaPerfilState extends State<TelaPerfil> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text("Tela Perfil"), automaticallyImplyLeading: false),
+      appBar: AppBar(
+        title: Row(
+          children: [
+            Container(
+              padding: EdgeInsets.all(4),
+              decoration: BoxDecoration(
+                color: Colors.white,
+                borderRadius: BorderRadius.circular(8),
+              ),
+              child: Image.network("https://cdn-icons-png.flaticon.com/512/6680/6680292.png", width: 24, height: 24),
+            ),
+            SizedBox(width: 8),
+            Text("Informações do Perfil", style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: Colors.white)),
+          ],
+        ),
+        automaticallyImplyLeading: false,
+        backgroundColor: Colors.orange,
+      ),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -66,8 +83,17 @@ class _TelaPerfilState extends State<TelaPerfil> {
             Icon(Icons.person, size: 120),
             SizedBox(height: 30),
             InputLogin(fofoqueira: emailDigitado, placeholder: "Digite o email"),
-            TextButton(onPressed: () { fazerPatch(); }, child: Text("Alterar")),
-            TextButton(onPressed: () { finalizarSessao(); }, child: Text("Sair"))
+            SizedBox(height: 10),
+            ElevatedButton(
+              onPressed: () { fazerPatch(); },
+              style: ElevatedButton.styleFrom(backgroundColor: Colors.orange, foregroundColor: Colors.white),
+              child: Text("Alterar"),
+            ),
+            TextButton(
+              onPressed: () { finalizarSessao(); },
+              style: TextButton.styleFrom(foregroundColor: Colors.red),
+              child: Text("Sair"),
+            ),
           ],
         ),
       ),

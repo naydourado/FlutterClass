@@ -77,12 +77,44 @@ class _TelaCarrinhoState extends State<TelaCarrinho> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Carrinho de Compras"),
+        title: Row(
+          children: [
+            Container(
+              padding: EdgeInsets.all(4),
+              decoration: BoxDecoration(
+                color: Colors.white,
+                borderRadius: BorderRadius.circular(8),
+              ),
+              child: Image.network("https://cdn-icons-png.flaticon.com/512/6680/6680292.png", width: 24, height: 24),
+            ),
+            SizedBox(width: 8),
+            Text("Carrinho de Compras", style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: Colors.white)),
+          ],
+        ),
         automaticallyImplyLeading: false,
+        backgroundColor: Colors.orange,
       ),
       body: produtosCarrinho.isEmpty
           ? Center(
-              child: Text("Adicione produtos na tela Home \n Carrinho Vazio!"),
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  Text(
+                    "Carrinho vazio",
+                    style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
+                  ),
+                  SizedBox(height: 8),
+                  Text("Adicione produtos na tela Home"),
+                  SizedBox(height: 16),
+                  ElevatedButton(
+                    onPressed: () {
+                      Navigator.pushNamedAndRemoveUntil(context, "/navbar", (route) => false);
+                    },
+                    style: ElevatedButton.styleFrom(backgroundColor: Colors.orange, foregroundColor: Colors.white),
+                    child: Text("Ir para Home"),
+                  ),
+                ],
+              ),
             )
           : ListView(
               children: [
@@ -118,12 +150,32 @@ class _TelaCarrinhoState extends State<TelaCarrinho> {
                       ],
                     ),
                   ),
-                Text("Total da sua compra: R\$ ${somarTotal().toStringAsFixed(2)}"),
-                TextButton(
-                  onPressed: () {
-                    fazerPost();
-                  },
-                  child: Text("Salvar"),
+                Divider(),
+                Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 16),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text(
+                        "Total da sua compra",
+                        style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                      ),
+                      Text(
+                        "R\$ ${somarTotal().toStringAsFixed(2)}",
+                        style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold, color: Colors.orange.shade800),
+                      ),
+                    ],
+                  ),
+                ),
+                SizedBox(height: 8),
+                Align(
+                  alignment: Alignment.center,
+                  child: TextButton(
+                    onPressed: () {
+                      fazerPost();
+                    },
+                    child: Text("Salvar"),
+                  ),
                 ),
               ],
             ),

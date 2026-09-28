@@ -24,7 +24,7 @@ class _NavBarState extends State<NavBar> {
     TelaCarrinho(),
     TelaPerfil()
   ];
-  
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(

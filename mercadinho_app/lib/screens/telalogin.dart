@@ -58,10 +58,11 @@ class _TelaLoginState extends State<TelaLogin> {
               placeholder: "Digite sua senha",
               senha: true,
             ),
-            TextButton(
+            ElevatedButton(
               onPressed: () {
                 fazerLogin();
               },
+              style: ElevatedButton.styleFrom(backgroundColor: Colors.orange, foregroundColor: Colors.white),
               child: Text("Logar"),
             ),
           ],

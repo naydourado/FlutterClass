@@ -90,7 +90,7 @@ class _TelaGestaoState extends State<TelaGestao> {
           TextField(controller: nomeDigitado, decoration: InputDecoration(hintText: "Insira o nome do produto"),),
           TextField(controller: urlDigitado, decoration: InputDecoration(hintText: "Insira a URL do produto"),),
           TextField(controller: precoDigitado, decoration: InputDecoration(hintText: "Insira o preço do produto"),),
-          TextButton(onPressed: fazerPost, child: Text("Salvar")),
+          Align(alignment: Alignment.center, child: TextButton(onPressed: fazerPost, child: Text("Salvar"))),
           SizedBox(height: 100,),
           Divider(indent: 15, endIndent: 15),
           for (final produto in listaProdutos)
