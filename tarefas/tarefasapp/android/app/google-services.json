@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "777345855369",
+    "project_id": "tarefasvini",
+    "storage_bucket": "tarefasvini.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:777345855369:android:6be654eac83483c0117b58",
+        "android_client_info": {
+          "package_name": "com.aula.tarefasapp"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCmJipSAIJb3qW2QjKzMTANOmZ8lPMje0k"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
